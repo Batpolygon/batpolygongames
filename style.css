@@ -1,0 +1,517 @@
+:root {
+    --base-font-size: 20px; /* Taille de base modifiable ici */
+    --box-border: 1px solid #444; /* Bordure */
+    --box-border-radius: 0.5rem; /* Rayon des coins arrondis */
+    --box-bg-color: #222; /* Couleur de fond */
+}
+
+@font-face {
+    font-family: 'KidZone';
+    src: url('fonts/Kidzone.woff2') format('woff2'),
+         url('fonts/Kidzone.woff') format('woff'),
+         url('fonts/Kidzone.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+strong {
+    color: inherit; /* Hérite de la couleur du parent */
+    font-weight: bold; /* Conserve la mise en gras */
+}
+
+/* Style du titre "Tout mes jeux" */
+.games h2 {
+    font-size: 2rem; /* Taille du texte */
+    text-align: center; /* Centre le titre */
+    margin-top: 4rem; /* Espace au-dessus */
+    margin-bottom: 1rem; /* Espace en-dessous */
+}
+
+body {
+    margin: 0;
+    font-family: 'KidZone', sans-serif;
+    font-size: var(--base-font-size); /* Taille de base */
+    line-height: 1.5; /* Espacement vertical */
+    background-color: #1e1e1e;
+    color: #fff;
+    display: flex; /* Permet d'aligner les sections verticalement */
+    flex-direction: column; /* Organisation en colonne */
+    min-height: 100vh; /* Assure une hauteur minimale de 100% de la fenêtre */
+}
+
+/* Header styling */
+header {
+    position: fixed; /* Reste visible en scrollant */
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Noir avec 50% d'opacité */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 1rem 1.25rem; /* Espacement intérieur */
+    display: flex; /* Alignement en ligne */
+    justify-content: space-between; /* Espace entre logo et menu */
+    align-items: center; /* Centré verticalement */
+    z-index: 1000; /* Toujours au-dessus des autres éléments */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+    backdrop-filter: blur(10px); /* Ajoute un effet de flou derrière */
+}
+
+/* Logo container styling */
+.logo {
+    display: flex;
+    align-items: center; /* Aligne verticalement le logo et le texte */
+    gap: 0.625rem; /* Espace entre le logo et le texte */
+}
+
+.logo-image {
+    width: 2.5rem; /* Taille du logo */
+    height: 2.5rem;
+    object-fit: contain; /* Garde les proportions de l'image */
+}
+
+.logo span {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.project-image {
+    width: 100rem; /* Taille du logo */
+    height: 10rem;
+    object-fit: contain; /* Garde les proportions de l'image */
+}
+
+/* Navigation menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #649ee0; /* Couleur de survol */
+}
+
+/* Adaptation pour les petits écrans */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Empile le logo et le menu */
+        padding: 0.625rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Main section */
+main {
+    flex: 1; /* Permet à cette section de prendre tout l'espace disponible */
+    padding: 1.25rem;
+}
+
+.container {
+    max-width: 900px; /* Largeur maximale, ajustez selon vos besoins */
+    margin: 0 auto; /* Centré horizontalement */
+    padding: 0 1.25rem; /* Ajoute un espace sur les côtés pour éviter le bord */
+}
+
+/* Applique la largeur harmonisée à la section welcome */
+.welcome {
+    padding: 1rem;
+    border: var(--box-border);
+    border-radius: var(--box-border-radius);
+    background-color: var(--box-bg-color);
+    margin-bottom: 0.25rem;
+    margin-top: 5rem; /* Garde l'espacement avec le header */
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+}
+
+.profile-image {
+    width: 150px; /* Taille de l'image */
+    height: auto; /* Maintient les proportions */
+    border-radius: 50%; /* Rend l'image ronde */
+    margin-bottom: 1rem; /* Ajoute un espace entre l'image et le texte */
+}
+
+.welcome p:first-of-type {
+    margin-top: 0; /* Supprime la marge supérieure du premier paragraphe */
+}
+
+.games {
+    text-align: center;
+    margin-top: 25px; /* Ajoute un espacement sous l'introduction */
+    max-width: 1000px; /* Limite la largeur du conteneur */
+    margin: 0 auto; /* Centre horizontalement */
+}
+
+/* Style pour la grille des jeux */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grille flexible */
+    gap: 1rem; /* Augmente l'espacement entre les cartes */
+    justify-items: center; /* Centre les cartes */
+}
+
+.gamesprime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.games-box {
+    display: flex; /* Active une disposition en ligne */
+    flex-direction: row; /* Aligne les cartes horizontalement */
+    justify-content: flex-start; /* Les cartes commencent à gauche */
+    gap: 1rem; /* Espacement entre les cartes */
+    max-width: 900px; /* Limite la largeur visible */
+    overflow-x: auto; /* Active le défilement horizontal */
+    padding: 1rem 0; /* Espacement intérieur vertical */
+    scroll-behavior: smooth; /* Optionnel : animation fluide pour le défilement */
+}
+
+/* Style des cartes de jeux */
+.game-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 1.25rem; /* Coins arrondis */
+    padding: 0.5rem; /* Marges internes */
+    width: 200px; /* Largeur fixe pour uniformité */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+}
+
+.game-card:hover {
+    transform: translateY(-5px); /* Effet de "saut" au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre amplifiée au survol */
+}
+
+/* Style des images des cartes */
+.game-card img {
+    width: 100%; /* Largeur de l'image adaptée à la carte */
+    height: auto; /* Maintient les proportions */
+    border-radius: 0.5rem; /* Coins légèrement arrondis */
+    object-fit: cover; /* S'assure que l'image s'adapte sans déformation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem; /* Marges internes */
+    width: 250px; /* Largeur fixe pour uniformité */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+    border: var(--box-border);
+    border-radius: var(--box-border-radius);
+    background-color: var(--box-bg-color);
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Effet de "saut" au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre amplifiée au survol */
+}
+
+/* Style des images des cartes */
+.project-card img {
+    width: 100%; /* Largeur de l'image adaptée à la carte */
+    height: auto; /* Maintient les proportions */
+    border-radius: 0.5rem; /* Coins légèrement arrondis */
+    object-fit: cover; /* S'assure que l'image s'adapte sans déformation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+}
+
+/* Titre des cartes */
+.game-title {
+    margin-top: 0.5rem; /* Espacement avec l'image */
+    font-size: 1rem; /* Taille du texte ajustée */
+    color: #fff; /* Couleur du texte */
+    border: var(--box-border);
+    border-radius: var(--box-border-radius);
+    background-color: var(--box-bg-color);
+    padding: 5px 10px; /* Espacement intérieur */
+    text-align: center; /* Centre le texte */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+    white-space: nowrap; /* Empêche le texte de sauter à la ligne */
+}
+
+.game-card-link {
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+/* Bouton blanc avec texte noir */
+.btn-view-all {
+    display: inline-block; /* Permet de donner une taille au bouton */
+    background-color: #fff; /* Fond blanc */
+    color: #000; /* Texte noir */
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1rem; /* Suit la taille de base */
+    font-weight: bold; /* Texte en gras */
+    padding: 0.625rem 1.25rem; /* Espacement intérieur */
+    border: 2px solid #000; /* Bordure noire */
+    border-radius: 1.25rem; /* Coins arrondis */
+    transition: all 0.3s ease; /* Animation fluide pour les interactions */
+    text-align: center; /* Centre le texte */
+    margin-top: 0.5rem;
+}
+
+.btn-view-all:hover {
+    background-color: #000; /* Fond noir au survol */
+    color: #fff; /* Texte blanc au survol */
+    border-color: #fff; /* Bordure blanche au survol */
+}
+
+/* Section "Retrouve-moi ici" */
+.social-links {
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    margin-top: 1rem; /* Ajoute un espace au-dessus */
+    gap: 1rem; /* Espace entre le titre et les boutons */
+}
+
+.social-buttons {
+    display: flex; /* Active Flexbox pour les boutons */
+    gap: 1rem; /* Espace entre les boutons */
+    justify-content: center; /* Centre horizontalement */
+}
+
+/* Bouton rouge pour YouTube */
+.btn-youtube {
+    display: inline-block; /* Permet de donner une taille au bouton */
+    background-color: #FF0000; /* Fond rouge (YouTube) */
+    color: #FFF; /* Texte blanc */
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1rem; /* Suit la taille de base */
+    font-weight: bold; /* Texte en gras */
+    padding: 0.625rem 1.25rem; /* Espacement intérieur */
+    border: 2px solid #FF0000; /* Bordure rouge */
+    border-radius: 1.25rem; /* Coins arrondis */
+    transition: all 0.3s ease; /* Animation fluide pour les interactions */
+    text-align: center; /* Centre le texte */
+}
+
+.btn-youtube:hover {
+    background-color: #FFF; /* Fond blanc au survol */
+    color: #FF0000; /* Texte rouge au survol */
+    border-color: #FF0000; /* Bordure rouge */
+}
+
+/* Bouton violet pour Discord */
+.btn-discord {
+    display: inline-block; /* Permet de donner une taille au bouton */
+    background-color: #5865F2; /* Fond violet (Discord) */
+    color: #FFF; /* Texte blanc */
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1rem; /* Suit la taille de base */
+    font-weight: bold; /* Texte en gras */
+    padding: 0.625rem 1.25rem; /* Espacement intérieur */
+    border: 2px solid #5865F2; /* Bordure violette */
+    border-radius: 1.25rem; /* Coins arrondis */
+    transition: all 0.3s ease; /* Animation fluide pour les interactions */
+    text-align: center; /* Centre le texte */
+}
+
+.btn-discord:hover {
+    background-color: #FFF; /* Fond blanc au survol */
+    color: #5865F2; /* Texte violet au survol */
+    border-color: #5865F2; /* Bordure violette */
+}
+
+/* Bouton jaune foncé pour Télécharger */
+.btn-download {
+    display: inline-block; /* Permet de donner une taille au bouton */
+    background-color: #8d862b; /* Fond jaune foncé */
+    color: #FFF; /* Texte blanc */
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1rem; /* Suit la taille de base */
+    font-weight: bold; /* Texte en gras */
+    padding: 0.625rem 1.25rem; /* Espacement intérieur */
+    border: 2px solid #8d862b; /* Bordure jaune foncé */
+    border-radius: 1.25rem; /* Coins arrondis */
+    transition: all 0.3s ease; /* Animation fluide pour les interactions */
+    text-align: center; /* Centre le texte */
+}
+
+.btn-download:hover {
+    background-color: #FFF; /* Fond blanc au survol */
+    color: #8d862b; /* Texte jaune foncé au survol */
+    border-color: #8d862b; /* Bordure jaune foncé */
+}
+
+/* Bouton bleu pour PlushNToy */
+.btn-plushntoy {
+    display: inline-block; /* Permet de donner une taille au bouton */
+    background-color: #0059ff; /* Fond violet (Discord) */
+    color: #FFF; /* Texte blanc */
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1rem; /* Suit la taille de base */
+    font-weight: bold; /* Texte en gras */
+    padding: 0.625rem 1.25rem; /* Espacement intérieur */
+    border: 2px solid #0059ff; /* Bordure violette */
+    border-radius: 1.25rem; /* Coins arrondis */
+    transition: all 0.3s ease; /* Animation fluide pour les interactions */
+    text-align: center; /* Centre le texte */
+}
+
+.btn-plushntoy:hover {
+    background-color: #FFF; /* Fond blanc au survol */
+    color: #0059ff; /* Texte violet au survol */
+    border-color: #0059ff; /* Bordure violette */
+}
+
+/* Bouton blanc avec texte noir */
+.btn-patreon {
+    display: inline-block; /* Permet de donner une taille au bouton */
+    background-color: #000000; /* Fond blanc */
+    color: #ffffff; /* Texte noir */
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1rem; /* Suit la taille de base */
+    font-weight: bold; /* Texte en gras */
+    padding: 0.625rem 1.25rem; /* Espacement intérieur */
+    border: 2px solid #ffffff; /* Bordure noire */
+    border-radius: 1.25rem; /* Coins arrondis */
+    transition: all 0.3s ease; /* Animation fluide pour les interactions */
+    text-align: center; /* Centre le texte */
+    margin-top: 0.5rem;
+}
+
+.btn-patreon:hover {
+    background-color: #ffffff; /* Fond noir au survol */
+    color: #000000; /* Texte blanc au survol */
+    border-color: #000000; /* Bordure blanche au survol */
+}
+
+
+/* Footer section */
+.footer-message {
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 1.25rem 0; /* Espacement vertical */
+    background-color: #181818; /* Fond noir */
+    color: #fff; /* Texte blanc */
+    font-size: 1.125rem; /* 18px = taille de base * 1.125 */
+    margin-top: auto; /* Place cette section tout en bas */
+}
+
+.game-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 100px; /* Ajuste la marge supérieure pour compenser la hauteur du header */
+}
+
+.game-page {
+    flex: 2; /* Occupe deux fois plus d'espace que la carte */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    border: var(--box-border);
+    border-radius: var(--box-border-radius);
+    background-color: var(--box-bg-color);
+}
+
+.game-page h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.platform-windows {
+    color: #0088ff;
+}
+
+.platform-android {
+    color: #59ff00;
+}
+
+.platform-icon {
+    width: 25px !important; /* Ajustez la largeur selon vos besoins */
+    height: 25px !important; /* Assurez une taille cohérente */
+    vertical-align: middle; /* Aligne l'icône avec le texte */
+    margin-left: 8px; /* Ajoute un espace entre le texte et l'icône */
+    margin-bottom: 1px;
+}
+
+.game-trailer {
+    flex: 2; /* Occupe deux fois plus d'espace que la carte */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.game-card-trailer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 1.25rem; /* Coins arrondis */
+    width: 300px; /* Largeur fixe pour uniformité */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+}
+
+/* Style des images des cartes */
+.game-card-trailer img {
+    width: 100%; /* Largeur de l'image adaptée à la carte */
+    height: auto; /* Maintient les proportions */
+    border-radius: 0.5rem; /* Coins légèrement arrondis */
+    object-fit: cover; /* S'assure que l'image s'adapte sans déformation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+}
+
+.game-trailer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    max-width: 900px;  /* Limite la largeur du conteneur */
+    overflow-x: auto;  /* Active le défilement horizontal */
+    position: relative;
+}
+
+/* Les iframes ne doivent pas se réduire et doivent rester à leur taille d'origine */
+.game-trailer-container iframe {
+    flex-shrink: 0;  /* Empêche l'iframe de se réduire */
+    width: 560px;  /* Largeur de l'iframe */
+    height: 315px;  /* Hauteur de l'iframe */
+}
+
+.game-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.game-changelog {
+    border: var(--box-border);
+    border-radius: var(--box-border-radius);
+    background-color: var(--box-bg-color);
+    padding: 1rem;
+    max-width: 1000px;
+    text-align: left;
+}
+
+.game-changelog h2:first-of-type {
+    margin-top: 0; /* Supprime la marge supérieure du premier paragraphe */
+}
